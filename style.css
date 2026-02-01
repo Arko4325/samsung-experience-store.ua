@@ -1,0 +1,543 @@
+.cart {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #020302;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  display: inline-block;
+}
+
+
+#cart-count {
+  transition: all 0.3s;
+}
+
+
+* {box-sizing: border-box;}
+body {
+	font-family: sans-serif;
+	margin: 20px;
+}
+.slider { 
+  position: relative;
+	text-align: center;
+  top: 10px;
+	max-width: 960px; 
+	margin: 0 auto;
+}
+
+.slides .slide{ /*все изображения справа друг от доруга*/
+	width: 25%;
+	float: left;
+}
+
+.slides .slider-inner{
+	width: 400%;
+}
+.overflow{ 
+	width: 100%;
+	overflow: hidden;
+}
+
+ img{ 
+	width: 100%;
+}
+ 
+.slide h2 {
+	margin-top: -50px;
+	background-color: rgba(255, 255, 255, 0.749);
+	padding: 10px 0;
+	position: relative;
+}
+.arrows label {
+	height: 40px;
+	width: 40px;
+}
+/*настройка переключения и положения для левой стрелки*/
+#switch1:checked ~ .arrows label:nth-child(4), 
+#switch2:checked ~ .arrows label:nth-child(1),
+#switch3:checked ~ .arrows label:nth-child(2),
+#switch4:checked ~ .arrows label:nth-child(3){
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='40' fill='lightgrey'%3E%3Cpath d='M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z'/%3E%3C/svg%3E") center/cover no-repeat; 
+	float: left;
+	margin: 0 0 0 40px;
+	display: block;
+}
+
+/*настройка переключения и положения для правой стрелки*/
+#switch1:checked ~ .arrows label:nth-child(2),
+#switch2:checked ~ .arrows label:nth-child(3),
+#switch3:checked ~ .arrows label:nth-child(4),
+#switch4:checked ~ .arrows label:nth-child(1) {
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='40' fill='lightgrey'%3E%3Cpath d='M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z'/%3E%3C/svg%3E") no-repeat center/cover; 
+	float: right;
+	margin: 0 40px 0 0; 
+	display: block;
+}
+
+label, a{ 
+	cursor: pointer;
+}
+/*скрываетвсе radio-input*/
+input[type="radio"]{ 
+	display: none;
+}
+
+#switch1:checked ~ .slides .slider-inner{
+	margin-left: 0;
+}
+
+#switch2:checked ~ .slides .slider-inner{
+	margin-left: -100%;
+}
+
+#switch3:checked ~ .slides .slider-inner{
+	margin-left: -200%;
+}
+
+#switch4:checked ~ .slides .slider-inner{
+	margin-left: -300%;
+}
+
+.arrows{ 
+	margin: -29% 0 0 0;
+	width: 100%;
+	height: 50px;
+}
+
+.dots label{
+	border-radius: 10px;
+	display: inline-block; 
+	width: 15px;
+	height: 15px;
+	background: #bbb;
+}
+
+.dots{
+	margin: 23% 0 0;
+	text-align: center;
+}
+
+.dots label:hover{ 
+	background: #76c8ff;
+	border-color: #777 !important;
+}
+
+#switch1:checked ~ .dots label:nth-child(1),
+#switch2:checked ~ .dots label:nth-child(2),
+#switch3:checked ~ .dots label:nth-child(3),
+#switch4:checked ~ .dots label:nth-child(4){
+	background: #18a3dd;
+	border-color: #18a3dd !important;
+}
+
+.slides .slider-inner{ 
+	transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+.arrows label:hover{ 
+	opacity: 0.6;
+}
+
+.arrows label{
+	transition: opacity 0.2s ease-out;
+}
+
+@media (max-width: 480px) {
+	.arrows label {
+		width: 25px;
+		height: 25px;
+	}
+	.slide h2 {
+		font-size: 1.2em;
+		padding: 6px 0;
+	}
+	.dots {
+		margin-top: 16%;
+	}
+	.dots label {
+		width: 10px;
+		height: 10px;
+	}
+}
+
+/* 1. БАЗОВІ СТИЛІ ТА СКИДАННЯ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+/* 2. СТИЛІ ХЕДЕРА ТА ФУТЕРА */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cart-icon {
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+}
+
+.phone-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff; /* Яскравий колір для телефону */
+}
+
+.phone-details {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.social-links span {
+    margin: 0 10px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* 3. СТИЛІ ГЕРОЙ-БАНЕРА (INDEX.HTML) */
+.hero {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-bottom: 20px;
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 250px;
+    max-width: 50%;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.ai-badge {
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.promo-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.new-price {
+    color: #e00000;
+    font-size: 2rem;
+}
+
+/* 4. СТИЛІ СЕКЦІЇ ПРО МАГАЗИН */
+.about {
+    background-color: #fff;
+    padding: 30px 0;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 200px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* 5. СТИЛІ КАТАЛОГІВ ТА ПРОДУКТІВ */
+.products {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Сетка для головної сторінки та сторінок-каталогів */
+.product-grid,
+.smartphone-grid {
+    display: grid;
+    /* 4 колонки для головної, 3 колонки для сторінок категорій */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px;
+    justify-content: center; /* Центрує елементи, якщо їх менше, ніж колонок */
+}
+
+/* На сторінках-каталогах фіксуємо 3 колонки, якщо це можливо */
+@media (min-width: 900px) {
+    .smartphone-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* СТИЛІ КАРТКИ ПРОДУКТУ */
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 250px; /* Для вирівнювання карток на index.html */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h4 {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.product-card-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-specs {
+    list-style: none;
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 10px;
+    color: #555;
+}
+
+.product-specs li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.product-price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* 6. СТИЛІ ГЕРОЙ-СЕКЦІЇ НА СТОРІНКАХ КАТАЛОГІВ */
+.page-hero {
+    background-color: #e6e6e6;
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* 7. ВИПРАВЛЕННЯ ДЛЯ ПОСИЛАНЬ (ЗАПИТ КОРИСТУВАЧА) */
+
+.product-card-link {
+    text-decoration: none; /* ВИДАЛЯЄ ПІДКРЕСЛЕННЯ */
+    color: inherit; /* ЗБЕРІГАЄ КОЛІР ВІД КАРТКИ (НЕ СИНІЙ) */
+}
+
+.product-card-link:hover {
+    color: #007bff; /* Опціональна зміна кольору при наведенні миші */
+}
+
+/* Кнопка "Придбати" */
+.buy-btn{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Фірмовий синій */
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.buy-btn:hover {
+    background-color: #0056b3;
+}
+/* Стилі модального вікна */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-modal {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-total {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    margin: 20px 0;
+}
+
+.pay-btn {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pay-btn:hover { background-color: #218838; }
